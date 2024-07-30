@@ -345,9 +345,11 @@ int nano_bcn_uart_init(host_itf_t *p_hif)
 	if (!p_hif->delay)
 		return NANO_BCN_ERR_INVALID_PARAM;
 
-	if (!p_hif->delay) 
-		return NANO_BCN_ERR_INVALID_PARAM;
-
+	if (!p_hif->serial_break)
+	{
+		//Some devices' serial ports do not support break signals
+		//return NANO_BCN_ERR_INVALID_PARAM;
+	}
 	if (!p_hif->serial_rx) 
 		return NANO_BCN_ERR_INVALID_PARAM;
 
@@ -559,7 +561,7 @@ void nano_bcn_sleep_by_uart_break_on()
 {
 	nano_bcn_dev_t* pd = &g_dev;
 	host_itf_t* p_hif = &g_dev.hif;
-	if (!pd->ready)
+	if (!pd->ready || NULL == p_hif->serial_break)
 		return ;
 	p_hif->serial_break(1);
 }
@@ -568,7 +570,7 @@ void nano_bcn_wakeup_by_uart_break_off()
 {
 	nano_bcn_dev_t* pd = &g_dev;
 	host_itf_t* p_hif = &g_dev.hif;
-	if (!pd->ready)
+	if (!pd->ready || NULL == p_hif->serial_break)
 		return ;
 	p_hif->serial_break(0);
 }

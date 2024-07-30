@@ -59,7 +59,7 @@ static void example_gpio_trigger_advertising(void)
     gpios_setting_t gpio_settings;
     memset(&gpio_settings, 0, sizeof(gpio_settings));
 
-    /* set GPIO2 high level to trigger advertyising */
+    /* set GPIO2 high level to trigger advertising */
     gpio_settings.gpio2_cfg.dir = BCN_GPIO_INPUT;
     gpio_settings.gpio2_cfg.pull_up_down = BCN_GPIO_PULL_DISABLE;
     gpio_settings.gpio2_cfg.trigger = GPIO_TRIGGER_HIGH;
