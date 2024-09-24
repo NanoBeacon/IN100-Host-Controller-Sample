@@ -27,7 +27,7 @@ void bcn_adv_region_data_reset(void)
 	}
 }
 
-int bcn_adv_tx_set(advset_index_t idx, int tx_interval, adv_channel_ctl_t ch_ctl, adv_mode_t mode)
+int bcn_adv_tx_set(advset_index_t idx, int tx_interval, adv_channel_ctl_t ch_ctl, phy_rate_t phy, adv_mode_t mode)
 {
 	adv_ctl_t* adv_ctl;
 	if (idx > ADV_SET_NUM) {
@@ -42,6 +42,7 @@ int bcn_adv_tx_set(advset_index_t idx, int tx_interval, adv_channel_ctl_t ch_ctl
 	adv_ctl->adv_interval[1] = (tx_interval >> 8) & 0xff;
 	adv_ctl->adv_interval[2] = (tx_interval >> 16) & 0xff;
 	adv_ctl->b0.u.adv_type = mode;
+	adv_ctl->pkt_ctl.b1.u.phy_rate = phy;
 	adv_ctl->b8.u.adv_channel_control = ch_ctl;
 	return RET_OK;
 }

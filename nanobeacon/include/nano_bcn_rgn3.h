@@ -54,6 +54,11 @@ typedef enum {
 	ADV_CH_37,
 }adv_channel_ctl_t;
 
+typedef enum {
+	PHY_RATE_1M = 0,
+	PHY_RATE_125K =2,
+}phy_rate_t;
+
 /*
  * APIs
  ****************************************************************************************
@@ -63,7 +68,7 @@ extern "C" {                // Make sure we have C-declarations in C++ programs
 #endif
 
 void bcn_adv_region_data_reset(void);
-int bcn_adv_tx_set(advset_index_t idx, int tx_interval, adv_channel_ctl_t ch_ctl, adv_mode_t mode);
+int bcn_adv_tx_set(advset_index_t idx, int tx_interval, adv_channel_ctl_t ch_ctl, phy_rate_t phy, adv_mode_t mode);
 int bcn_adv_address_set(advset_index_t idx, address_type_t addr_type, const uint8_t* bdaddr,
 	                    uint16_t addr_gen_interval, uint8_t key_idx);
 

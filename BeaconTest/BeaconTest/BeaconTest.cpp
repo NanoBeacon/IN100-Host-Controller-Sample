@@ -79,7 +79,7 @@ static void example_gpio_trigger_advertising(void)
     bcn_on_chip_measurement_en(0, 0);
 
     /* advertising set #1 , advertising on channels 37,38,39, period is 100ms */
-    bcn_adv_tx_set(ADV_SET_1, 100, ADV_CH_37_38_39, ADV_MODE_EVENT);
+    bcn_adv_tx_set(ADV_SET_1, 100, ADV_CH_37_38_39, PHY_RATE_1M, ADV_MODE_EVENT);
     bcn_adv_address_set(ADV_SET_1, ADDR_PUBLIC, bdaddr, 60, 0);
 
     /* add predefined data to advertising payload */
@@ -120,7 +120,7 @@ static void example_continuous_advertising(void)
     bcn_on_chip_measurement_en(0, 0);
 
     /*advertising set #1 , advertising on channels 37,38,39, period is 1000ms*/
-    bcn_adv_tx_set(ADV_SET_1, 1000, ADV_CH_37_38_39, ADV_MODE_CONTINUOUS);
+    bcn_adv_tx_set(ADV_SET_1, 1000, ADV_CH_37_38_39, PHY_RATE_1M, ADV_MODE_CONTINUOUS);
     bcn_adv_address_set(ADV_SET_1, ADDR_PUBLIC, bdaddr, 60, 0);
 
     /*add predefined data to advertising payload */
@@ -169,7 +169,7 @@ static void example_continuous_advertising_with_vcc_temperature(void)
 
     adv_raw[0] = 8;
     /*advertising set #1 , advertising on channels 37,38,39, period is 1000ms*/
-    bcn_adv_tx_set(ADV_SET_1, 1000, ADV_CH_37_38_39, ADV_MODE_CONTINUOUS);
+    bcn_adv_tx_set(ADV_SET_1, 1000, ADV_CH_37_38_39, PHY_RATE_1M, ADV_MODE_CONTINUOUS);
     bcn_adv_address_set(ADV_SET_1, ADDR_PUBLIC, bdaddr, 60, 0);
 
     /*add predefined data to advertising payload */
@@ -195,12 +195,12 @@ static void example_multi_advertising_sets(void)
     bcn_on_chip_measurement_en(0, 0);
 
     /* advertising set #1 */
-    bcn_adv_tx_set(ADV_SET_1, 1000, ADV_CH_37_38_39, ADV_MODE_CONTINUOUS);
+    bcn_adv_tx_set(ADV_SET_1, 1000, ADV_CH_37_38_39, PHY_RATE_1M, ADV_MODE_CONTINUOUS);
     bcn_adv_address_set(ADV_SET_1, ADDR_PUBLIC, bdaddr, 60, 0);
     bcn_adv_data_add_predefined_data(ADV_SET_1, adv_raw, sizeof(adv_raw), 0);
 
     /* advertising set #2 */
-    bcn_adv_tx_set(ADV_SET_2, 1000, ADV_CH_37_38_39, ADV_MODE_CONTINUOUS);
+    bcn_adv_tx_set(ADV_SET_2, 1000, ADV_CH_37_38_39, PHY_RATE_1M, ADV_MODE_CONTINUOUS);
     bdaddr[0] = 0x11;
     bcn_adv_address_set(ADV_SET_2, ADDR_PUBLIC, bdaddr, 60, 0);
     bcn_adv_data_add_predefined_data(ADV_SET_2, adv_raw2, sizeof(adv_raw2), 0);

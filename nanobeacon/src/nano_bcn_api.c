@@ -53,7 +53,7 @@ int nano_bcn_board_setup(uint8_t capacitor, uint8_t xo_stable_time, uint8_t xo_s
 int nano_bcn_set_advertising(const uint8_t* bdaddr, int interval, uint8_t* adv_raw_data, int len)
 {
 	advset_index_t idx = ADV_SET_1;
-	bcn_adv_tx_set(idx, interval, ADV_CH_37_38_39, ADV_MODE_CONTINUOUS);
+	bcn_adv_tx_set(idx, interval, ADV_CH_37_38_39, PHY_RATE_1M, ADV_MODE_CONTINUOUS);
 	bcn_adv_address_set(idx, ADDR_PUBLIC, bdaddr, 60, 0);
 	bcn_adv_data_add_predefined_data(idx, adv_raw_data, len, 0);
 	return 0;
