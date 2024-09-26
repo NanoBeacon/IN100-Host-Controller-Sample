@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include "serial_if.h"
 #include "nano_bcn_api.h"
+#include "nano_bcn_rf_test.h"
 
 extern "C" void host_sleep(uint32_t ms)
 {

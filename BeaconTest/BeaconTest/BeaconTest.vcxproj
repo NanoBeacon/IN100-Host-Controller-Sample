@@ -130,6 +130,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\nanobeacon\src\nano_bcn_api.c" />
     <ClCompile Include="..\..\nanobeacon\src\nano_bcn_dev.c" />
+    <ClCompile Include="..\..\nanobeacon\src\nano_bcn_rf_test.c" />
     <ClCompile Include="..\..\nanobeacon\src\nano_bcn_rgn1.c" />
     <ClCompile Include="..\..\nanobeacon\src\nano_bcn_rgn2.c" />
     <ClCompile Include="..\..\nanobeacon\src\nano_bcn_rgn3.c" />

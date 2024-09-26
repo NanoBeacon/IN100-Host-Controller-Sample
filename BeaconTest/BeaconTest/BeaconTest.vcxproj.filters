@@ -42,5 +42,8 @@
     <ClCompile Include="in_uart.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\nanobeacon\src\nano_bcn_rf_test.c">
+      <Filter>源文件\nanobeacon</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
