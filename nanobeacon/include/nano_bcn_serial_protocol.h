@@ -75,7 +75,7 @@ int nano_bcn_write_efuse(uint8_t aid, uint16_t wd, uint16_t* p_rd);
  * Params:  p_hif     host interface function
  * Return:  0 indicates success, others indicate failure
  */
-int nano_bcn_uart_init(host_itf_t *p_hif);
+int nano_bcn_uart_init(host_itf_t *p_hif, int probe_en);
 
 /**
  * Usage:   Used to deinit

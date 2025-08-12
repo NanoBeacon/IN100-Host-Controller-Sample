@@ -340,7 +340,7 @@ static int send_ready(int * baud_rate)
 	return res;
 } 
 
-int nano_bcn_uart_init(host_itf_t *p_hif)
+int nano_bcn_uart_init(host_itf_t *p_hif, int probe_en)
 {
 	if (!p_hif->delay)
 		return NANO_BCN_ERR_INVALID_PARAM;
@@ -364,6 +364,10 @@ int nano_bcn_uart_init(host_itf_t *p_hif)
 	g_dev.hif.serial_break = p_hif->serial_break;
 
 	int res = NANO_BCN_ERR_NO_ERROR;
+	if (!probe_en) {
+		g_dev.ready = 1;
+		return res;
+	}
 	clear_uart_rx_buffer();
 	res = send_ready(NULL);
 	if (res != NANO_BCN_ERR_NO_ERROR)
@@ -399,7 +403,6 @@ void nano_bcn_uart_deinit(void)
 	
 	if (pd->ready)
 		pd->ready = 0;
-
 }
 
 int nano_bcn_read_reg(uint16_t adr, uint32_t *p_rd)

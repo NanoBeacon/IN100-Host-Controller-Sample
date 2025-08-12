@@ -10,9 +10,9 @@
  * Params:  p_hif     host interface function
  * Return:  0 indicates success, others indicate failure
  */
-int nano_bcn_init(host_itf_t *p_hif)
+int nano_bcn_init(host_itf_t *p_hif, int probe_en)
 {
-	return nano_bcn_uart_init(p_hif);
+	return nano_bcn_uart_init(p_hif, probe_en);
 }
 
 void nano_bcn_deinit(void)

@@ -232,7 +232,7 @@ int main()
 
     mcu_wakeup_nanobeacon();
 
-    res = nano_bcn_init(&hif);
+    res = nano_bcn_init(&hif, 1);
     std::cout << "nano_bcn_init:" << res << std::endl;
 
     res = nano_bcn_board_setup(7, 36, 16, 0);
